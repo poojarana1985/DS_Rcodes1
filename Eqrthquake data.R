@@ -19,6 +19,11 @@ summary(e_quakes[,4])
 plot(e_quakes)
 plot(e_quakes$depth)
 plot(e_quakes$mag)
+plot(e_quakes$depth,e_quakes$mag,type="p")
+
+# points and lines 
+plot(e_quakes$depth, type= "l") # p: points, l: lines,b: both
+plot(e_quakes$mag, type= "l")
 
 
 #Horizontal Bar plot
@@ -33,15 +38,17 @@ hist(e_quakes$mag)
 
 #Single box plot
 boxplot(e_quakes$depth,main="Boxplot")
+boxplot.stats(e_quakes$depth)$out
 boxplot(e_quakes$mag,main="Boxplot")
+boxplot.stats(e_quakes$mag)$out
 
 # Multiple box plots
 boxplot(e_quakes[,3:4],main='Multiple')
 
 
 #Variance
-var(e_quakes$depth)
-var(e_quakes$mag)
+var(e_quakes$depth, na.rm = T)
+var(e_quakes$mag, na.rm = T)
 
 #skewness
 skewness(e_quakes$depth)
